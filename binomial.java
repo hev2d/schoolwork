@@ -1,4 +1,3 @@
-
 import java.io.*;
 public class Binomial_expansion {
 
@@ -9,7 +8,7 @@ public class Binomial_expansion {
 		int x=0;
 		if a<5
 		{
-			for
+			for()
 			{
 				if x=!a
 						Math.pow(11, x)
