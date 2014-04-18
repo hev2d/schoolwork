@@ -1,0 +1,13 @@
+ static int Power(int power, int exponent){
+      int number=1;
+      
+      for (int x=0;x<exponent;x++){
+           
+           number*=power;
+           
+           
+        }
+        output (number);
+        return number;
+        
+    }
