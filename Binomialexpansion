@@ -1,41 +1,35 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
-public class april11project {
+public class Binomial_expansion {
 	
 		public static void main(String[] args){
+			Scanner scanner = new Scanner(System.in);
+			Scanner input=new Scanner(System.in);
+			String answer= null;
+			do{
+			output ("do you want (p)ascals triangle or a (b)inomial expansion?");
 			
-			
-		/*BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
-	     try
-	       {
-	         System.out.print("Input the number of rows for pascal triangle :");
-	         int rows=Integer.parseInt(br.readLine());
-	         for(int i=0;i<rows;i++)
-	            {
-	               int num=1;
-	               System.out.format("%"+(rows-i)*2+"s"," ");
-	               for(int j=0;j<=i;j++)
-	                 {
-	                   System.out.format("%4d",num);
-	                   num=num*(i-j)/(j+1);
-	                 }
-	             System.out.println();
-	            }
-	        }
-	        catch(Exception e)
-	            {
-	              System.out.println(""+e);
-	            }
-	    */
-	     
+			char selection =scanner.next().charAt(0);
+			if(selection== 'p'){
+				int rows = inputInt("Enter the number of rows that you would like to display of Pascals triangle");
+				pascals(rows);
+			} else{
 				output ("(a+b)^n");
 				int n=inputInt("Input the n");
 				int a=inputInt("input the a");
 				int b=inputInt("Input the b");
 				BinomialExpansion(n,a,b);
-			}
+				}
+		
+		output("would you like to try another?");
+		 answer = input.nextLine();
+			}while(answer.toLowerCase().equals( "y" ));
+			
+			
+		}
 			static int factorial (int x) {
 				if (x <=1){
 						return 1;
@@ -55,16 +49,48 @@ public class april11project {
 				int k = 0;
 				for(int x=0; x<n+1;x++){
 					int coefficient= BinomialTheroem(n,k);
-					output(coefficient);
-					//int exponentfora=n-k;
-					//int exponentforb=k;
-					
-					//output( coefficient*("a^"*exponentfora)*("b^"*exponentforb));
+					int exponentfora=n-k;
+					int exponentforb=k;
+				
+					output(coefficient+"("+Power(b,exponentforb)+"b"+"^"+exponentforb+")"+"("+Power(a,exponentfora)+"a"+"^"+exponentfora+")");
 					k++;
 				}
 				return 1;
 			}
 
+			static int pascals (int rows){
+			     try
+			       {
+			         
+			         
+			         for(int i=0;i<rows;i++)
+			            {
+			               int num=1;
+			               System.out.format("%"+(rows-i)*2+"s"," ");
+			               for(int j=0;j<=i;j++)
+			                 {
+			                   System.out.format("%4d",num);
+			                   num=num*(i-j)/(j+1);
+			                 }
+			             System.out.println();
+			            }
+			        }
+			        catch(Exception e)
+			            {
+			              System.out.println(""+e);
+			            }
+			     return 1;
+			}
+			static int Power(int power, int exponent){
+			      int number=1;
+			      
+			      for (int x=0;x<exponent;x++){ 
+			           number*=power;
+			        }
+			        output (number);
+			        return number;
+			        
+			    }
 			static void output (String info){
 				   System.out.println(info);
 				}
@@ -123,8 +149,3 @@ public class april11project {
 				   return result;
 				}
 		}
-
-	
-
-
-
